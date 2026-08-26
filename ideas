@@ -3,3 +3,5 @@ how to pull data from FSA website
 Input= location
 output = map with restauranrs with 0 hygiene rating
 
+#2 Create a seq.fasta DNA checker program. Which scans the fasta file for non nucltootides, warns you if they are above a particular threshold 
+and then prints the non-nucleotides alongside their positions in the file.fasta
