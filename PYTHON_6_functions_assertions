@@ -1,0 +1,49 @@
+Write a function that takes two arguments – a protein sequence and an amino acid residue code – 
+and returns the percentage of the protein that the amino acid makes up. 
+Use following assertion to check function---assert my_function("MSRSLLLRFLLFLLLLPPLP", "Y") == 0
+
+protein_seq = "MSRSLLLRFLLFLLLLPPLP"
+target_protein = "M"
+
+def aa_calc(protein_seq, protein_target):
+    prot_count = protein_seq.count(protein_target)
+    prot_proportion = prot_count / (len(protein_seq))
+    aa_perc = prot_proportion * 100
+    return aa_perc
+
+
+Modify the function from part one so that it accepts a list of amino acid residues rather than a single one. 
+If no list is given, the function should return the percentage of hydrophobic amino acid residues 
+(A, I, L, M, F, W, Y and V). 
+
+protein_seq = "MSRSLLLRFLLFLLLLPPLP"
+proteins = ["M", "L"]
+
+def prot_comp_hyphob_calc(protein_seq, proteins=None):
+    prot_seq_len = len(protein_seq)
+    total = 0
+    if proteins is None:
+        print("NO INPUT PROTEIN QUERY SPECIFIED, CALCULATING HYDROPHOBICITY OF PROTEIN SEQUENCE INSTEAD")
+        A_count = protein_seq.count("A")
+        I_count = protein_seq.count("I")
+        L_count = protein_seq.count("L")
+        M_count = protein_seq.count("M")
+        F_count = protein_seq.count("F")
+        W_count = protein_seq.count("W")
+        Y_count = protein_seq.count("Y")
+        V_count = protein_seq.count("V")
+        TOTAL_HYDRO_count = A_count + I_count + L_count + M_count + F_count + W_count + Y_count + V_count
+        aa_perc = (TOTAL_HYDRO_count/ prot_seq_len) * 100
+        aa_perc_dp = round(aa_perc)
+        return print("INPUT PROTEIN IS HAS A HYDROPHOBIC RESIDUE PERCENTAGE OF " + str(aa_perc_dp))
+    else:
+        for prot in proteins:
+                hit = protein_seq.count(prot)
+                total = total + hit
+                prot_perc = (hit / prot_seq_len) * 100
+                print("found " + prot + " residue " + str(hit) + " times inside the input protein sequnce. Composing " + str(round(prot_perc)) + " % of the input protein sequence")
+        return print("Found this list of residue(s) " + str(total) + " time(s) totalling " + str(round(((total / prot_seq_len) * 100))) + " % of the input protein sequence")
+
+Your function should pass the following assertions:
+assert prot_comp_hyphob_calc("MSRSLLLRFLLFLLLLPPLP", ["M"]) == 5
+assert prot_comp_hyphob_calc("MSRSLLLRFLLFLLLLPPLP", "M") == 65
