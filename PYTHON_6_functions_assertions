@@ -1,4 +1,4 @@
-Write a function that takes two arguments – a protein sequence and an amino acid residue code – 
+1. Write a function that takes two arguments – a protein sequence and an amino acid residue code – 
 and returns the percentage of the protein that the amino acid makes up. 
 Use following assertion to check function---assert my_function("MSRSLLLRFLLFLLLLPPLP", "Y") == 0
 
@@ -10,7 +10,7 @@ def aa_calc(protein_seq, protein_target):
     prot_proportion = prot_count / (len(protein_seq))
     aa_perc = prot_proportion * 100
     return aa_perc
-
+*************************************************************************************************
 
 Modify the function from part one so that it accepts a list of amino acid residues rather than a single one. 
 If no list is given, the function should return the percentage of hydrophobic amino acid residues 
@@ -47,3 +47,19 @@ def prot_comp_hyphob_calc(protein_seq, proteins=None):
 Your function should pass the following assertions:
 assert prot_comp_hyphob_calc("MSRSLLLRFLLFLLLLPPLP", ["M"]) == 5
 assert prot_comp_hyphob_calc("MSRSLLLRFLLFLLLLPPLP", "M") == 65
+***************************************************************************************************
+#Write a function that will take a DNA sequence along with an optional threshold and return `True` or `False` to indicate 
+whetherthe DNA sequence contains a high proportion of undetermined bases (i.e not A, T, G or C).
+
+dna_seq2 = "ATGCATGATGCP--GATTAX"
+
+def unk_seq_counter(dna_seq, threshold):
+    unknown_character_counter = 0
+    for base in dna_seq:
+        if base not in ['A', 'T', 'C', 'G']:
+            unknown_character_counter = unknown_character_counter + 1
+    unknown_proportion = unknown_character_counter / len(dna_seq)
+    if ((1 - unknown_proportion) > threshold):
+        return "False: " + str(unknown_character_counter) + " non DNA chracters detected"
+
+unk_seq_counter(dna_seq2, 0.70) -> 'False: 4 non DNA chracters detected'
