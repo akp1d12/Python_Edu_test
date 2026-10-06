@@ -3,7 +3,7 @@ and returns the percentage of the protein that the amino acid makes up.
 Use following assertion to check function---assert my_function("MSRSLLLRFLLFLLLLPPLP", "Y") == 0
 
 protein_seq = "MSRSLLLRFLLFLLLLPPLP"
-target_protein = "M"
+protein_target = "M"
 
 def aa_calc(protein_seq, protein_target):
     prot_count = protein_seq.count(protein_target)
