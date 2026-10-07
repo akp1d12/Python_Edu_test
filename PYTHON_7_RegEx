@@ -1,0 +1,68 @@
+import re
+
+acc_nos = ['xkn59438', 'yhdck2', 'eihd39d9', 'chdsye847', 'hedle3455', 'xjhd53e', '45da', 'de37dp']
+
+for accession in acc_nos:
+    if re.search(r'5', accession):
+        print(accession + " : Contains the number 5")
+
+for accession in acc_nos:
+    if re.search(r'(d|e)', accession):
+        print(accession + " : Contains a 'd' or 'e'")
+
+for accession in acc_nos:
+    if re.search(r'de', accession):
+        print(accession + " : Contains a 'd and e' in that order")
+
+for accession in acc_nos:
+    if re.search(r'd[a-zA-Z]e', accession):
+        print(accession + " : Contains a 'd and e' in that order with a single letter in between them")
+
+for accession in acc_nos:
+    if re.search(r'(e.*d|d.*e)', accession):
+        print(accession + " : Contains both the letters 'd' and 'e' in any order")
+
+for accession in acc_nos:
+    if re.search(r'^(x|y)', accession):
+        print(accession + " : Starts with X or Y")
+
+for accession in acc_nos:
+    if re.search(r'^(x|y).*e$', accession):
+        print(accession + " : Starts with X or Y and ends with e")
+
+for accession in acc_nos:
+    if re.search(r'\d{3,}', accession):
+        print(accession + " : contain 3 or more digits in a row")
+
+for accession in acc_nos:
+    if re.search(r'd(a|r|p)$', accession):
+        print(accession + " : end with d followed by either a, r or p")
+
+***********************************************************************************************************************
+xkn59438 : Contains the number 5
+hedle3455 : Contains the number 5
+xjhd53e : Contains the number 5
+45da : Contains the number 5
+yhdck2 : Contains a 'd' or 'e'
+eihd39d9 : Contains a 'd' or 'e'
+chdsye847 : Contains a 'd' or 'e'
+hedle3455 : Contains a 'd' or 'e'
+xjhd53e : Contains a 'd' or 'e'
+45da : Contains a 'd' or 'e'
+de37dp : Contains a 'd' or 'e'
+de37dp : Contains a 'd and e' in that order
+hedle3455 : Contains a 'd and e' in that order with a single letter in between them
+eihd39d9 : Contains both the letters 'd' and 'e' in any order
+chdsye847 : Contains both the letters 'd' and 'e' in any order
+hedle3455 : Contains both the letters 'd' and 'e' in any order
+xjhd53e : Contains both the letters 'd' and 'e' in any order
+de37dp : Contains both the letters 'd' and 'e' in any order
+xkn59438 : Starts with X or Y
+yhdck2 : Starts with X or Y
+xjhd53e : Starts with X or Y
+xjhd53e : Starts with X or Y and ends with e
+xkn59438 : contain 3 or more digits in a row
+chdsye847 : contain 3 or more digits in a row
+hedle3455 : contain 3 or more digits in a row
+45da : end with d followed by either a, r or p
+de37dp : end with d followed by either a, r or p
